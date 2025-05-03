@@ -15,7 +15,7 @@ Each directory contains the respective configuration files, which can be symlink
 
 1. Clone the repository:
 ```zsh
-    git clone https://github.com/yourusername/dotfiles.git ~/.dotfiles
+    git clone https://github.com/kubemancer/dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
 ```
 1. Use `stow` to symlink the configurations:
