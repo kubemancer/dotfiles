@@ -1,0 +1,8 @@
+theme = dark: tokyonight-storm ,light: tokyonight-storm
+background-opacity = 0.9
+background-blur = true
+cursor-style-blink = false
+cursor-text = #000
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
