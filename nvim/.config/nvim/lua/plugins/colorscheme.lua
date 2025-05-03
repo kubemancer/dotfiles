@@ -8,11 +8,31 @@ return {
   --      -- Set the Catppuccin theme
   --      vim.cmd.colorscheme("catppuccin")
   --    end,
+  --    opts = {
+  --      transparent = true,
+  --      styles = {
+  --        sidebars = "transparent",
+  --        floats = "transparent",
+  --      },
+  --    },
   --  },
   {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
   },
+  -- {
+  --   "catgoose/nvim-colorizer.lua",
+  --   event = "BufReadPre",
+  --   opts = { -- set to setup table
+  --   },
+  -- },
+  -- --{ "ellisonleao/gruvbox.nvim" },
 }
