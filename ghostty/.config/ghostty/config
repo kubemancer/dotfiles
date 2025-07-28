@@ -1,4 +1,4 @@
-theme = dark: "Everforest Dark - Hard" ,light: "Everforest Dark - Hard"
+theme = dark: tokyonight-storm ,light: tokyonight-storm
 # theme = firewatch
 background-opacity = 0.9
 background-blur = true
