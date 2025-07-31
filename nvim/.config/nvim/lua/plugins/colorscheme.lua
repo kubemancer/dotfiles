@@ -23,6 +23,7 @@ return {
     priority = 1000,
     opts = {
       transparent = true,
+      style = "storm",
       styles = {
         sidebars = "transparent",
         floats = "transparent",

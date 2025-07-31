@@ -4,7 +4,7 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
+export ZDOTDIR=$HOME
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -98,8 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-alias k=kubectl
-alias t=terraform
+
 # alias vim=nvim
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -119,9 +118,7 @@ bindkey "[D" backward-word
 bindkey "[C" forward-word
 
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-alias python='/usr/bin/python3'
 bindkey -e
-alias cls="clear"
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
@@ -133,8 +130,6 @@ export PATH="/Users/khalil/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 source <(kubectl completion zsh)
 export PATH=$PATH:$HOME/go/bin
-alias clr=clear
-alias vim=nvim
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$PATH:/Users/khalil/.spicetify
 export PATH=$PATH:~/.cargo/bin
@@ -160,6 +155,12 @@ export EDITOR=nvim
 # Enable kube-ps1
 source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1)'$PS1
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+alias k=kubectl
+alias t=terraform
+alias clr=clear
+alias python='/usr/bin/python3'
+alias vim=nvim
+
+
