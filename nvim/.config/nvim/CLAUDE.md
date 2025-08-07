@@ -15,43 +15,65 @@ This is a Neovim configuration built on top of LazyVim, a modern Neovim distribu
 ## Architecture
 
 ### Directory Structure
-- `init.lua` - Entry point with basic keymaps and lazy.nvim bootstrap
-- `lua/config/` - Core configuration files that override LazyVim defaults
-- `lua/plugins/` - Custom plugin configurations that extend LazyVim
+- `init.lua` - Entry point with custom buffer navigation keymaps and lazy.nvim bootstrap
+- `lua/config/` - LazyVim configuration overrides (most files are minimal and defer to LazyVim defaults)
+- `lua/plugins/` - Custom plugin configurations that extend LazyVim's base functionality
 
-### Key Files
-- `lua/config/lazy.lua` - Lazy.nvim setup with LazyVim integration and extra specs
-- `lua/plugins/lsp-config.lua` - LSP configurations for TypeScript, Go, Python, and Tailwind
-- `lua/plugins/colorscheme.lua` - Theme configuration (currently Tokyo Night with transparency)
+### LazyVim Integration Pattern
+This configuration extends LazyVim rather than replacing it:
+- `lua/config/lazy.lua` imports LazyVim core plus selected extras (TypeScript, JSON, none-ls)
+- Most config files in `lua/config/` are minimal placeholders that inherit LazyVim defaults
+- Custom functionality is added through plugin specifications in `lua/plugins/`
 
-### Plugin Management
-- Uses Lazy.nvim as the plugin manager
-- Extends LazyVim with additional language support and customizations
-- Plugin specifications are in individual files under `lua/plugins/`
-- LazyVim extras are imported in `lua/config/lazy.lua`
+### Key Plugin Configurations
+- `lua/plugins/lsp-config.lua` - Comprehensive LSP setup with specialized configurations:
+  - Go: gopls with extensive hints, analyses, and semantic tokens workaround
+  - TypeScript: Custom typescript.nvim setup with organize imports and rename file keymaps
+  - Tailwind: Enhanced class regex patterns for various frameworks
+  - Python: pyright integration
+- `lua/plugins/colorscheme.lua` - Tokyo Night theme with transparency settings
+- `lua/plugins/quick-notes.lua` - Custom quick notes plugin with keybindings (`<leader>nn`, `<leader>nl`, `<leader>ns`)
 
-### Language Support
-- TypeScript/JavaScript with typescript.nvim and tsserver
-- Go with gopls (comprehensive configuration with hints, analyses, and semantic tokens)
-- Python with pyright
-- Tailwind CSS with enhanced class regex patterns
-- JSON support through LazyVim extras
-
-### LSP Configuration
-- LSP servers are configured through Mason and mason-lspconfig
-- Custom LSP settings are in `lua/plugins/lsp-config.lua`
-- Go LSP includes extensive gopls configuration with semantic tokens workaround
-- TypeScript includes organize imports and rename file keymaps
+### Custom Keymaps
+- Buffer navigation: `<Tab>` (next buffer), `<S-Tab>` (previous buffer) defined in `init.lua`
+- Quick notes: `<leader>nn` (new note), `<leader>nl` (list notes), `<leader>ns` (search notes)
+- TypeScript: `<leader>co` (organize imports), `<leader>cR` (rename file)
 
 ## Development Commands
 
 - Test configuration: `nvim --headless -c "checkhealth" -c "quit"`
 - Launch Neovim: `nvim`
 - Format Lua files: `stylua .`
+- Plugin management: `:Lazy` (update, install, clean plugins)
+
+## Plugin Architecture Patterns
+
+### LSP Configuration Pattern
+LSP servers are configured in `lua/plugins/lsp-config.lua` using multiple return blocks:
+1. TypeScript block with typescript.nvim integration and custom keymaps
+2. Main LSP block with server configurations (gopls, pyright, tailwindcss)
+3. Mason integration block for automatic LSP server installation
+
+### Plugin Loading Strategy
+- LazyVim extras are imported in `lua/config/lazy.lua` for language support
+- Custom plugins in `lua/plugins/` use lazy loading with `keys`, `cmd`, or `event` triggers
+- Performance optimizations disable unused RTP plugins in lazy.nvim config
+
+### Transparency Theme Pattern
+Colorscheme configurations consistently use transparency settings:
+```lua
+opts = {
+  transparent = true,
+  styles = {
+    sidebars = "transparent",
+    floats = "transparent",
+  },
+}
+```
 
 ## Important Notes
 
-- This configuration is a dotfiles setup (part of a larger dotfiles repository)
-- Uses transparent themes by default
-- Buffer navigation is customized with Tab/Shift-Tab in init.lua
-- Configuration follows LazyVim conventions - most default keymaps and options come from LazyVim
+- This is a dotfiles configuration (part of a larger dotfiles repository)
+- Inherits most functionality from LazyVim - avoid duplicating LazyVim features
+- Uses semantic tokens workaround for Go LSP due to gopls limitations
+- Quick notes plugin stores notes in `~/notes` directory by default

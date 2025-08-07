@@ -17,18 +17,29 @@ return {
   --      },
   --    },
   --  },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {
+  --     transparent = true,
+  --     style = "storm",
+  --     styles = {
+  --       sidebars = "transparent",
+  --       floats = "transparent",
+  --     },
+  --   },
+  -- },
   {
-    "folke/tokyonight.nvim",
+    "scottmckendry/cyberdream.nvim",
     lazy = false,
     priority = 1000,
-    opts = {
-      transparent = true,
-      style = "storm",
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
-    },
+    config = function()
+      require("cyberdream").setup({
+        transparent = true,
+      })
+      vim.cmd("colorscheme cyberdream")
+    end,
   },
   -- {
   --   "catgoose/nvim-colorizer.lua",
