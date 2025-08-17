@@ -1,7 +1,7 @@
 # theme = dark: tokyonight-storm ,light: tokyonight-storm
 # theme = firewatch
 theme = Cyberdyne
-background-opacity = 0.9
+background-opacity = 0.7
 background-blur = true
 cursor-style-blink = false
 cursor-text = #000
