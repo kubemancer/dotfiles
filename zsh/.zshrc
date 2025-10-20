@@ -133,6 +133,7 @@ export PATH=$PATH:$HOME/go/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$PATH:/Users/khalil/.spicetify
 export PATH=$PATH:~/.cargo/bin
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="/Users/khalil/Library/pnpm"
@@ -162,5 +163,3 @@ alias t=terraform
 alias clr=clear
 alias python='/usr/bin/python3'
 alias vim=nvim
-
-
