@@ -1,15 +1,15 @@
 return {
-  {
-    "kubemancer/firewatch.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {
-      transparent = true,
-    },
-    config = function(_, opts)
-      require("firewatch").setup(opts)
-    end,
-  },
+  --  {
+  --    "kubemancer/firewatch.nvim",
+  --    lazy = false,
+  --    priority = 1000,
+  --    opts = {
+  --      transparent = true,
+  --    },
+  --    config = function(_, opts)
+  --      require("firewatch").setup(opts)
+  --    end,
+  --  },
   {
     "norcalli/nvim-colorizer.lua",
   },
@@ -53,19 +53,19 @@ return {
   --     vim.cmd.colorscheme("catppuccin")
   --   end,
   -- },
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   opts = {
-  --     transparent = true,
-  --     style = "storm",
-  --     styles = {
-  --       sidebars = "transparent",
-  --       floats = "transparent",
-  --     },
-  --   },
-  -- },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+      style = "storm",
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
+  },
   -- {
   --   "scottmckendry/cyberdream.nvim",
   --   lazy = false,
